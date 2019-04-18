@@ -7,11 +7,13 @@ import { PetsComponent } from './components/pets/pets.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {PetService} from "./services/pet.service";
+import { PetFormComponent } from './components/pet-form/pet-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PetsComponent,
+    PetFormComponent,
   ],
   imports: [
     BrowserModule,

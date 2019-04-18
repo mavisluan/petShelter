@@ -18,15 +18,12 @@ const PetSchema = new mongoose.Schema({
         },
         skill1: {
             type: String,
-            minlength: [3, "Skill must be more than 3 characters"]
         },
         skill2: {
             type: String,
-            minlength: [3, "Skill must be more than 3 characters"]
         },
         skill3: {
             type: String,
-            minlength: [3, "Skill must be more than 3 characters"]
         },
         likes: Number
     },

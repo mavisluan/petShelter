@@ -1,0 +1,122 @@
+<form class="col-8" #petForm="ngForm" (ngSubmit)="!isEdit ? onCreate(petForm) : onUpdate(petForm)">
+  <input name="_id" type="hidden" [(ngModel)]="currentPet._id" #petId="ngModel"
+         *ngIf="isEdit"/>
+  <div class="form-group">
+    <label>Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      [(ngModel)]="currentPet.name"
+      [ngClass]="{'is-invalid':petName.errors && petName.touched}"
+      #petName="ngModel"
+      required
+      minlength="3"
+    >
+    <div [hidden]="!petName.errors?.required" class="invalid-feedback">
+      First name required
+    </div>
+    <div [hidden]="!petName.errors?.minlength" class="invalid-feedback">
+      Must be at least 3 characters
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Type</label>
+    <input
+      type="text"
+      class="form-control"
+      name="type"
+      [(ngModel)]="currentPet.type"
+      [ngClass]="{'is-invalid':petType.errors && petType.touched}"
+      #petType="ngModel"
+      required
+      minlength="3"
+    >
+    <div [hidden]="!petType.errors?.required" class="invalid-feedback">
+      First name required
+    </div>
+    <div [hidden]="!petType.errors?.minlength" class="invalid-feedback">
+      Must be at least 3 characters
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <input
+      type="text"
+      class="form-control"
+      name="description"
+      [(ngModel)]="currentPet.description"
+      [ngClass]="{'is-invalid':petDescription.errors && petDescription.touched}"
+      #petDescription="ngModel"
+      required
+      minlength="3"
+    >
+    <div [hidden]="!petDescription.errors?.required" class="invalid-feedback">
+      First name required
+    </div>
+    <div [hidden]="!petDescription.errors?.minlength" class="invalid-feedback">
+      Must be at least 3 characters
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div>Skills</div>
+    <ul>
+      <li>
+        <label>Skill 1:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="skill1"
+          [(ngModel)]="currentPet.skill1"
+          [ngClass]="{'is-invalid':petSkill1.errors && petSkill1.touched}"
+          #petSkill1="ngModel"
+          minlength="3"
+        >
+        <div [hidden]="!petSkill1.errors?.minlength" class="invalid-feedback">
+          Must be at least 3 characters
+        </div>
+      </li>
+      <li>
+        <label>Skill 2:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="skill2"
+          [(ngModel)]="currentPet.skill2"
+          [ngClass]="{'is-invalid':petSkill2.errors && petSkill2.touched}"
+          #petSkill2="ngModel"
+          minlength="3"
+        >
+        <div [hidden]="!petSkill2.errors?.minlength" class="invalid-feedback">
+          Must be at least 3 characters
+        </div>
+      </li>
+      <li>
+        <label>Skill 3:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="skill3"
+          [(ngModel)]="currentPet.skill3"
+          [ngClass]="{'is-invalid':petSkill3.errors && petSkill3.touched}"
+          #petSkill3="ngModel"
+          minlength="3"
+        >
+        <div [hidden]="!petSkill3.errors?.minlength" class="invalid-feedback">
+          Must be at least 3 characters
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="row justify-content-around">
+    <button [disabled]="!petForm.form.valid" class="btn btn-primary mb-3"
+            [innerText]="!isEdit ? 'Add New Pet' : 'Update Pet'"></button>
+    <a class="btn btn-primary text-white mb-3" role="button" routerLink="/pets">Cancel</a>
+  </div>
+  <!--  <button *ngIf="!isEdit" (click)="addPet(petFirstName.value, petLastName.value, petEmail.value)" [disabled]="!petForm.form.valid" class="btn btn-block mb-3">Add Post</button>-->
+  <!--  <button *ngIf="isEdit" (click)="updatePet()" [disabled]="!petForm.form.valid" class="btn btn-block mb-3">Update Post</button>-->
+</form>
