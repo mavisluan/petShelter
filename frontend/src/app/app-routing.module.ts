@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {PetFormComponent} from "./components/pet-form/pet-form.component";
 import {PetsComponent} from "./components/pets/pets.component";
+import {PetComponent} from "./components/pet/pet.component";
 
 // Create routes variable, type: Routes, structure: array
 const routes: Routes = [
@@ -9,7 +10,7 @@ const routes: Routes = [
   // {path: '', component: HomeComponent},
   {path: 'pets', component: PetsComponent},
   {path: 'pets/new', component:PetFormComponent},
-  // {path: 'post/:id', component: PostComponent},
+  {path: 'pets/:id', component: PetComponent},
   // {path: '**', component: NotFoundComponent},
 ];
 

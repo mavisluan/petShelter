@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Pet} from "../../models/Pet";
 import {PetService} from "../../services/pet.service";
 
@@ -8,7 +8,19 @@ import {PetService} from "../../services/pet.service";
   styleUrls: ['./pets.component.css']
 })
 export class PetsComponent implements OnInit {
+  currentPet: Pet = {
+      _id: '',
+      name: 'pet10',
+      type: 'dog',
+      description: 'Cute',
+      skill1: 'swim',
+      skill2: 'hug',
+      skill3: 'fetch',
+      likes: 15
+  };
   pets: Pet[];
+  state: string;
+
   constructor(private petService: PetService) { }
 
   ngOnInit() {
@@ -19,7 +31,7 @@ export class PetsComponent implements OnInit {
   getAll() {
     this.petService.getPets().subscribe(pets => {
       this.pets = pets;
-      console.log('getAllPets', pets);
+      // console.log('getAllPets', pets);
     })
   }
 
@@ -29,4 +41,12 @@ export class PetsComponent implements OnInit {
       console.log('delete pet', pet)
     })
   }
+
+  // onShowOne( petId: string ) {
+  //   this.petService.getPet(petId).subscribe(pet => {
+  //     // this.currentPet = pet;
+  //     // console.log(this.currentPet)
+  //     this.state = 'show';
+  //   })
+  // }
 }

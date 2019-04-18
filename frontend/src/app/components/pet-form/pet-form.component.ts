@@ -35,7 +35,7 @@ export class PetFormComponent implements OnInit {
       console.log('Form is not valid');
     } else {
       this.petService.addPet(value as Pet).subscribe( pet => {
-        console.log('created a new pet',pet);
+        // console.log('created a new pet',pet);
         this.router.navigateByUrl('/pets');
       });
       // reset the form

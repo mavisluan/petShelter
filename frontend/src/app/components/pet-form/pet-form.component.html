@@ -1,6 +1,13 @@
 <form class="col-8" #petForm="ngForm" (ngSubmit)="!isEdit ? onCreate(petForm) : onUpdate(petForm)">
   <input name="_id" type="hidden" [(ngModel)]="currentPet._id" #petId="ngModel"
          *ngIf="isEdit"/>
+  <input
+    type="hidden"
+    class="form-control"
+    name="likes"
+    [(ngModel)]="currentPet.likes"
+    #petLikes="ngModel"
+  >
   <div class="form-group">
     <label>Name</label>
     <input

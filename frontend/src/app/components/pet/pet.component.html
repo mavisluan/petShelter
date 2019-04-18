@@ -1,0 +1,30 @@
+<a routerLink="/pets" class="offset-8">Home</a>
+<div class="container" *ngIf="currentPet">
+<h5>Details about {{currentPet.name}}</h5>
+<table class="table table-borderless col-8">
+  <thead>
+  <tr>
+    <th scope="col">Pet type</th>
+    <td scope="col">{{currentPet.type}}</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">Description</th>
+    <td>{{currentPet.description}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Skills</th>
+    <td>{{currentPet.skill1}} {{currentPet.skill2}} {{currentPet.skill3}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Likes</th>
+    <td>{{currentPet.likes}}</td>
+  </tr>
+  <tr>
+    <th scope="row"><button class="btn btn-info">Like this currentPet</button></th>
+    <td><button class="btn btn-info">Adopt this currentPet!</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>
