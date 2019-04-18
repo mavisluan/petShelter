@@ -10,20 +10,37 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class PetComponent implements OnInit {
   currentPet: Pet;
+  hide: boolean = false;
 
-  constructor(private petService: PetService, private route: ActivatedRoute) { }
+  constructor(
+    private petService: PetService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      // console.log('id', params.get('id'))
-      this.getOne(params.get('id'));
+      this.getPet(params.get('id'));
     })
   }
 
-  getOne(id: string) {
+  getPet(id: string) {
     this.petService.getPet(id).subscribe(pet => {
       this.currentPet = pet
-      console.log(this.currentPet);
+    })
+  }
+
+  likePet(pet: Pet) {
+    pet.likes = (!pet.likes ? 1: pet.likes + 1 );
+    this.petService.updatePet(pet).subscribe(pet => {
+      this.currentPet = pet;
+      this.hide = true;
+    })
+  }
+
+  removePet(id: string) {
+    this.petService.removePet(id).subscribe(pet => {
+      this.router.navigateByUrl('/pets');
     })
   }
 }

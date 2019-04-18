@@ -6,5 +6,5 @@ export interface Pet {
   skill1?: string;
   skill2?: string;
   skill3?: string;
-  likes?: Number;
+  likes?: number;
 }
