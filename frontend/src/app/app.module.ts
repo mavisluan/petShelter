@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {PetService} from "./services/pet.service";
 import { PetFormComponent } from './components/pet-form/pet-form.component';
 import { PetComponent } from './components/pet/pet.component';
+import { ValidateUniqueNameDirective } from './validator/validate-unique-name.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PetComponent } from './components/pet/pet.component';
     PetsComponent,
     PetFormComponent,
     PetComponent,
+    ValidateUniqueNameDirective,
   ],
   imports: [
     BrowserModule,

@@ -44,4 +44,10 @@ export class PetService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Pet>(url);
   }
+
+  getPetByName(name: string) {
+    const url = `${this.apiUrl}/name/${name}`;
+    return this.http.get<Pet>(url);
+  }
+
 }

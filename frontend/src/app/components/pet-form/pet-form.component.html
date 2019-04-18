@@ -18,13 +18,17 @@
       [ngClass]="{'is-invalid':petName.errors && petName.touched}"
       #petName="ngModel"
       required
+      uniqueName
       minlength="3"
     >
     <div [hidden]="!petName.errors?.required" class="invalid-feedback">
-      First name required
+      Name required
     </div>
     <div [hidden]="!petName.errors?.minlength" class="invalid-feedback">
       Must be at least 3 characters
+    </div>
+    <div [hidden]="!petName.errors?.uniqueName" class="invalid-feedback">
+      Name already taken
     </div>
   </div>
 
@@ -38,10 +42,9 @@
       [ngClass]="{'is-invalid':petType.errors && petType.touched}"
       #petType="ngModel"
       required
-      minlength="3"
-    >
+      minlength="3">
     <div [hidden]="!petType.errors?.required" class="invalid-feedback">
-      First name required
+      Type required
     </div>
     <div [hidden]="!petType.errors?.minlength" class="invalid-feedback">
       Must be at least 3 characters
@@ -61,7 +64,7 @@
       minlength="3"
     >
     <div [hidden]="!petDescription.errors?.required" class="invalid-feedback">
-      First name required
+      Description required
     </div>
     <div [hidden]="!petDescription.errors?.minlength" class="invalid-feedback">
       Must be at least 3 characters

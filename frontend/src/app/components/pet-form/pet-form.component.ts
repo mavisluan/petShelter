@@ -59,4 +59,16 @@ export class PetFormComponent implements OnInit {
       this.currentPet = pet
     })
   }
+
+  onUpdate({value, valid}: { value: Pet, valid: boolean }) {
+    if (!valid) {
+      console.log('Form is not valid');
+    } else {
+      this.petService.updatePet(value as Pet).subscribe( pet => {
+        // console.log('created a new pet',pet);
+        this.router.navigateByUrl('/pets');
+      });
+      
+    }
+  }
 }

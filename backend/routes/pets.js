@@ -34,13 +34,9 @@ router.get('/',  async (req, res) => {
 // GET ONE
 router.get(`/:id`, async (req, res) => {
   const id = req.params.id;
-  // if (!ObjectID.isValid(id)) {
-  //     return res.status(404).send()
-  // }
 
   try {
     const pet = await Pet.findById(id);
-    // const pet = await Pet.findOne({ _id: id })
     if(!pet) {
       return res.status(404).send()
     }
@@ -88,5 +84,21 @@ router.delete(`/:id`, async (req, res) => {
     res.status(400).send()
   }
 });
+
+
+// FindBYNAME --> Check if pet.name already exists, the response will be validated in AsyncValidator
+router.get(`/name/:name`, async (req, res) => {
+  try {
+    const pet = await Pet.findOne({name: req.params.name});
+    !pet ? res.send(true) : res.send(false);
+    // if(!pet) {
+    //   return res.send({uniqueName: true})
+    // }
+    // res.send({uniqueName: false})
+  } catch(e) {
+    res.status(400).send(e);
+  }
+});
+
 
 module.exports = router;
