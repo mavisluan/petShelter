@@ -19,6 +19,7 @@ export class PetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // read id from route params
     this.route.paramMap.subscribe(params => {
       this.getPet(params.get('id'));
     })

@@ -42,11 +42,4 @@ export class PetsComponent implements OnInit {
     })
   }
 
-  // onShowOne( petId: string ) {
-  //   this.petService.getPet(petId).subscribe(pet => {
-  //     // this.currentPet = pet;
-  //     // console.log(this.currentPet)
-  //     this.state = 'show';
-  //   })
-  // }
 }

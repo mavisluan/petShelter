@@ -11,6 +11,8 @@ const routes: Routes = [
   {path: 'pets', component: PetsComponent},
   {path: 'pets/new', component:PetFormComponent},
   {path: 'pets/:id', component: PetComponent},
+  // pass data through routes
+  {path: 'pets/:id/edit', component: PetFormComponent, data: {isEdit: true}},
   // {path: '**', component: NotFoundComponent},
 ];
 
