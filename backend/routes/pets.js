@@ -23,7 +23,7 @@ router.get('/',  async (req, res) => {
   console.log('GET ALL');
   try {
     // sort it by createdAt Desc order
-    const pets = await Pet.find({}).sort({type: -1});
+    const pets = await Pet.find({}).sort({type: 1});
     res.send(pets);
   } catch(e) {
     res.status(400).send(e);
